@@ -6,7 +6,7 @@ clear all;
 close all;
 aa=tic;% calculate execution time
 
-nk=100;
+nk=100; % number of lineages to simulate
  tou_G=10.*ones(1,4); % correlation time for lineages
  tou_S=10.*ones(1,4);
  seed_arr=[10 1001 2002]; % seed array 
@@ -15,21 +15,19 @@ nk=100;
  for ns=1:length(s_array)
  ns1=s_array(ns); % noise strength of first TR
 ku=4;
-mycol={'r','b','m','g','m','k','b','r','g'};
+mycol={'r','b','m','g','m','k','b','r','g'}; % for plotting purpose
 seed=seed_arr(see);
 file_name=sprintf('t_a_u=%d s=%.3f seed=%d.dat',tou_G(1),ns1,seed); %generate file to store output
 fid2=fopen(file_name,'w');
 %tname=sprintf('%s,n=%d',baseFileName(1:end-4),N);
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- d=2.8;
- sf=1;
-
+ d=2.8; % cell cycle period scalling parameter
+ sf=1; % Scalling factor
 %% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 for kk=1:nk
     try
-    
-    zd=zeros(14,1);
+   zd=zeros(14,1);
     
 %   tstart and tfinal
    % tstart = 0.0;
